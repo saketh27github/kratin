@@ -1,0 +1,26 @@
+#  PYTHON 
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Mock data for personalized activity suggestions
+activities = {
+    'Exercise': ['Morning Walk', 'Chair Yoga', 'Gardening'],
+    'Hobbies': ['Painting', 'Reading', 'Music'],
+}
+
+# Mock data for social networking
+social_network = {
+    'User1': ['User2', 'User3'],
+    'User2': ['User1'],
+    'User3': ['User1'],
+}
+
+@app.route('/')
+def home():
+    return render_template('index.html', activities=activities, social_network=social_network)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
